@@ -1,0 +1,90 @@
+openapi: '3.0.2'
+info:
+  title: Onboarding
+  description: STD22017
+  contact:
+    email: hei.tsiaroniaina@gmail.com
+  version: '1.0'
+servers:
+  - url: https://STD22017/TD1
+ 
+paths:
+  /students:
+    get:
+      tags:
+        - "Student" 
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+               $ref: '#/components/schemas/Response'
+        
+        '500': 
+          description: Internal Server Error
+
+
+  /student:
+    post:
+      tags:
+        - "Student"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Input'
+      responses:
+        '200':
+          description: ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Add'
+
+        '500':
+          description: Internal Server Error
+components:
+  schemas:
+    Response:
+      type: object
+      properties:
+        id: 
+          type: string
+          example: STD22017
+        name:
+          type: string
+          example: Tsiaroniaina
+        birthDate: 
+          type: string
+          format: date
+          example: 2004-09-25  
+    Add:
+      type: object
+      properties:
+        id: 
+          type: string
+          example: STD22017
+        name:
+          type: string
+          example: Tsiaroniaina
+        birthDate: 
+          type: string
+          format: date
+          example: 2004-09-25
+    Input:
+      type: object
+      properties:
+        id: 
+          type: string
+          example: New ID
+        name:
+          type: string
+          example: NewStudent
+        birthDate: 
+          type: string
+          format: date
+          example: Birth date
+
+            
