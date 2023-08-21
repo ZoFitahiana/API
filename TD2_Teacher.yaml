@@ -1,0 +1,96 @@
+openapi: '3.0.2'
+info:
+  title: API for Teachers and Courses
+  description: Interface system for fetching teacher details and their courses.
+  contact:
+    email: hei.tsiaroniaina@gmail.com.com
+  version: '1.0'
+servers:
+  - url: https://teacher/api
+
+paths:
+  /teachers:
+    post:
+      tags:
+        - "Teacher"
+      summary: post a new teacher
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Input'
+      responses:
+        '201':
+          description: Teacher created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Teacher'
+        '500':
+          description: Internal Server Error
+
+    get:
+      tags:
+        - "Teacher"
+      summary: show a Teacher by ID
+
+      responses:
+        '200':
+          description: Successful 
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Teacher'
+        '500':
+          description: Internal Server Error
+
+components:
+  schemas:
+    Teacher:
+      type: object
+      properties:
+        name:
+          type: string
+          example: RAMAROZAKA
+        courses:
+          type: array
+          items:
+            $ref: '#/components/schemas/Course'
+            
+    Course:
+      type: object
+      properties:
+        name:
+          type: string
+          example: POO
+        code:
+          type: string
+          example: PROG2
+        duration:
+          type: string
+          example: 3 hours
+
+    Input:
+      type: object
+      properties:
+        name:
+          type: string
+          example: RAMAROZAKA
+        courses:
+          type: array
+          items:
+            $ref: '#/components/schemas/Courses'
+    
+    Courses:
+      type: object
+      properties:
+        name:
+          type: string
+          example: POO
+        code:
+          type: string
+          example: PROG2
+        duration:
+          type: string
+          example: 3 hours
