@@ -87,4 +87,99 @@ components:
           format: date
           example: Birth date
 
+    delete:
+      tags:
+        -"Student"
+      summary: To delete a student 
+      parameters:
+        - name: Id_student
+          in: path
+          required: true
+          description: Id student to delete a student 
+          schema:
+            type: string
+      responses:
+      '204':
+      description: No content 
+
+      '500':
+       description: Internal  server error 
+    
+    put:
+     tags:
+       - "Student"
+     summary: Update Student 
+     parameters:
+      - name : Id_student
+        in: path
+        required: true 
+        description: Id student to have  Update 
+        schema:
+         type: string
+     requestBody:
+       required: true 
+       content:
+        application/json:
+         schema: '#/components/schemas/Input'
+     responses:
+      '200':
+       description: ok 
+       content :
+       application/json:
+        schema: '#/components/schemas/Response'
+      '500':
+        description: Internale serveur error      
+
+compopnents:
+ schema:
+   Response:
+     type: object
+     properties:
+       id:
+         type: string
+         example: Tsiaroniaina
+       birthDate:
+         type: string
+         format: date 
+         example: 2004-02-25
+   RegisterResponse:
+      type: object
+      properties: 
+      id:
+       type: string
+       example: STD22017
+      name:
+       type: string
+       example: Tsiaroniaina
+      birthDate:
+       type: string
+       format: date
+       example: 2004-09-25
+   InputStudent:
+    type: object
+    properties:
+     id:
+      type: string
+      example: New Id Student 
+    name:
+     type: string
+     example: NewStudent
+    birthDate:
+     type: string
+     format: date 
+     example: Birth date Student 
+
+          
+
+
+     
+
+
+
+
+
+
+        
+
+
             
