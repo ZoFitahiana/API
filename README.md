@@ -2,6 +2,14 @@
 
 Welcome to the documentation for the Student Onboarding API! This API allows you to manage student information and perform various operations related to student onboarding. 
 
+# Link swager UI TD1
+
+https://petstore.swagger.io/?url=https://raw.githubusercontent.com/ZoFitahiana/API/main/TD1.yaml
+
+# Link swager UI TD2
+
+https://petstore.swagger.io/?url=https://raw.githubusercontent.com/ZoFitahiana/API/main/TD2_Teacher.yaml
+
 ## Table of Contents
 
 - [Introduction](#introduction)
